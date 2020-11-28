@@ -8,6 +8,7 @@ def jumps(plp, lo, hi): # 0 < lo < hi < 1
     return (prev <= lo) & (plp >= hi)
 
 
+# extremely naive. Assumes that filename consists of an audio file where a click (all beats) is attempted.
 def compute_onset_error(filename):
     y, sr = librosa.load(filename)
     onsets = librosa.onset.onset_detect(y,sr,units='time')
